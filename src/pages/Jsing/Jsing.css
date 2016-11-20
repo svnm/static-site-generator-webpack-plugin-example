@@ -1,0 +1,9 @@
+.pageTitle {
+  color: #FAA916;
+  font-weight: bold;
+  font-size: calc(12px + 5.5vw);
+}
+.contactStyle {
+  display: block;
+  font-size: 30;
+}

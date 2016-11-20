@@ -1,0 +1,37 @@
+.footContainer {
+  position: absolute;
+  width: 100vw;
+  max-width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 50px;
+}
+.footContainer .contentContainer {
+  display: flex;
+  justify-content: space-around;
+  background-color: #333333;
+  height: 50px;
+}
+.footContainer .contentContainer .linkContainer {
+  min-width: 200px;
+  display: flex;
+  justify-content: space-around;
+}
+.footContainer .contentContainer .linkContainer a {
+  color: white;
+}
+.footContainer .contentContainer .linkContainer a:hover {
+  color: #FAA916;
+}
+.footContainer .contentContainer .linkContainer .linkBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footContainer .contentContainer .copyright {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

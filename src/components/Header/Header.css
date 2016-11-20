@@ -1,0 +1,34 @@
+.navContainer {
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.navContainer .logo {
+  margin-left: 20px;
+  color: #105DB2;
+  min-width: 50px;
+  font-weight: bold;
+  font-size: calc(30px + 1.2vw);
+}
+.navContainer .linkContainer {
+  max-width: 50%;
+  min-width: 320px;
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-content: space-around;
+  text-transform: uppercase;
+  font-size: calc(8px + 1.2vw);
+  font-weight: bold;
+}
+.navContainer .linkContainer .linkBox {
+  display: flex;
+  justify-content: center;
+  margin-right: 10px;
+  align-items: center;
+}
+.navContainer .linkContainer .activeBox {
+  border-bottom: solid;
+  border-bottom-width: 5px;
+}

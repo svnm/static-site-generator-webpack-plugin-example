@@ -1,2 +1,1 @@
-# static-site-generator-webpack-plugin-example
-static-site-generator-webpack-plugin-example
+# React Webpack Static Site Example
