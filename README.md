@@ -14,4 +14,5 @@ A simple example of using [static-site-generator-webpack-plugin](https://github.
 ## Test your Static Site
 
     npm install http-server -g
+    cd build
     http-server # open 127.0.0.1:8080
