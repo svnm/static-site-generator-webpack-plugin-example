@@ -1,37 +1,30 @@
-.footContainer {
+.Footer {
   position: absolute;
-  width: 100vw;
-  max-width: 100%;
-  left: 0;
-  right: 0;
+  width: 100%;
   bottom: 0;
   height: 50px;
 }
-.footContainer .contentContainer {
+.FooterContent {
   display: flex;
   justify-content: space-around;
   background-color: #333333;
   height: 50px;
 }
-.footContainer .contentContainer .linkContainer {
+.Links {
   min-width: 200px;
   display: flex;
   justify-content: space-around;
 }
-.footContainer .contentContainer .linkContainer a {
-  color: white;
-}
-.footContainer .contentContainer .linkContainer a:hover {
-  color: #FAA916;
-}
-.footContainer .contentContainer .linkContainer .linkBox {
+.Link {
   display: flex;
-  justify-content: center;
   align-items: center;
+  color: #fff;
 }
-.footContainer .contentContainer .copyright {
+.Link:hover {
+  color: #faa916;
+}
+.Copyright {
   color: white;
   display: flex;
-  justify-content: center;
   align-items: center;
 }

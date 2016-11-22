@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import ReactDOMServer from 'react-dom/server'
 import { Router, RouterContext, match, browserHistory, createMemoryHistory } from 'react-router'
-import Root from './Root'
+import Template from './Template'
 import Routes from './routes'
 
 /* Client render (optional) */
@@ -21,9 +21,9 @@ export default (locals, callback) => {
     location: location
   }, function(error, redirectLocation, renderProps) {
     var html = ReactDOMServer.renderToStaticMarkup(
-      <Root>
+      <Template>
         <RouterContext {...renderProps} />
-      </Root>
+      </Template>
     );
     callback(null, html)
   })

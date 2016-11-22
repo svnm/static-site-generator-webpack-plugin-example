@@ -1,6 +1,6 @@
 import React from 'react'
-import Header from './components/Header/Header.js'
-import Footer from './components/Footer/Footer.js'
+import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
 import style from './App.css'
 
 export default class App extends React.Component {
@@ -8,8 +8,7 @@ export default class App extends React.Component {
     return(
       <div>
         <Header />
-        <div>RadTech... radical technologies for you to play with</div>
-          {this.props.children}
+        {this.props.children}
         <Footer />
       </div>
     )

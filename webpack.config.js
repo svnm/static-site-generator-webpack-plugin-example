@@ -1,5 +1,6 @@
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
+var autoprefixer = require('autoprefixer');
 var ss = require('./src/ss_routes');
 
 module.exports = {
@@ -19,7 +20,7 @@ module.exports = {
       {
         test: /\.css/,
         loader: ExtractTextPlugin.extract(
-          'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
+          'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss'
         ),
         include: __dirname + '/src'
       },
@@ -35,6 +36,7 @@ module.exports = {
       }
     ],
   },
+  postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
   plugins: [
     new ExtractTextPlugin("styles.css"),
     new StaticSiteGeneratorPlugin('main', ss.routes, ss)

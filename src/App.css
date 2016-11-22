@@ -4,47 +4,8 @@
   -moz-osx-font-smoothing: grayscale;
 }
 html {
-  font-family: 'Lato', sans-serif;
-  height: 100%;
-  width: 100%;
-  a {
-    text-decoration: none;
-    color: #333333;
-    &:hover {
-      color: #DE3C4B;
-    }
-  }
-  body {
-    position: relative;
-    min-height: 100%;
-    margin: 0;
-    padding: 0;
-    padding-bottom: 50px;
-  }
+  font-family: 'Source Sans Pro', sans-serif;
 }
-
-.pageContainer {
-  padding-top: 5vh;
-  width: 100vw;
-  max-width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.sectionContainer {
-  padding-bottom: 30px;
-  max-width: 80%;
-}
-.sectionTitle {
-  color: #105DB2;
-  padding-bottom: 20px;
-  font-weight: bold;
-  font-size: 48;
-  font-size: calc(12px + 2.5vw);
-}
-.sectionText {
-  font-size: 29;
-  font-size: calc(8px + 1.2vw);
+body {
+  margin: 0;
 }

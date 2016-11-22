@@ -1,10 +1,12 @@
-.pageTitle {
-  color: #FAA916;
-  font-weight: bold;
-  font-size: calc(12px + 5.5vw);
+.ContactTitle {
+  color: #faa916;
 }
-.sectionContainer {
+.ContactUs {
+  color: #0077b1;
+  text-decoration: none;
+  border-bottom: solid;
+  border-bottom-width: 2px;
 }
-.contactStyle {
-  font-size: 30;
+.ContactUs:hover {
+  color: #faa916;
 }

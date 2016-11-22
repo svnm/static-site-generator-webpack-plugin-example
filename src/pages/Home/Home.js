@@ -1,19 +1,18 @@
 import React from 'react'
-import style from './Home.css'
+import styles from './Home.css'
+import common from '../Common.css'
+Object.assign(styles, common)
+
+import radImg from '../../assets/images/radness.jpg'
 
 export default class Home extends React.Component {
   render() {
     return (
-      <div className={style.pageContainer}>
-        <div className={style.pageTitle}>Radnesstech Inc.</div>
-        <div className={style.paragraphContainer}>
-          <div className={style.sectionContainer}>
-            <div className={style.sectionText}>
-            <p>
-              Welcome to Radnesstech... An innovative company which works with some really cool and one might say radical technologies.
-            </p>
-            </div>
-          </div>
+      <div className={styles.Page}>
+        <h1 className={styles.PageTitle}>Radness Tech Inc.</h1>
+        <div className={styles.PageInner}>
+          <img className={`${styles.Img} ${styles.ImgCenter}`} src={radImg} />
+          <p>Welcome to Radness Tech... An innovative company working on some cool and one might say radical technologies.</p>
         </div>
       </div>
     )
