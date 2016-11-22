@@ -1,6 +1,6 @@
 # React Webpack Static Site Example
 
-A simple example of using [https://github.com/markdalgleish/static-site-generator-webpack-plugin](static-site-generator-webpack-plugin)
+A simple example of using [static-site-generator-webpack-plugin](https://github.com/markdalgleish/static-site-generator-webpack-plugin)
 
 ## Development
 
