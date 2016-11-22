@@ -15,4 +15,4 @@ A simple example of using [static-site-generator-webpack-plugin](https://github.
 
     npm install http-server -g
     cd build
-    http-server # open 127.0.0.1:8080
+    http-server # then open 127.0.0.1:8080 to view your static site
