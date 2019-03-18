@@ -1,44 +1,55 @@
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
-var autoprefixer = require('autoprefixer');
-var ss = require('./src/ss_routes');
+var StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin')
+var ss = require('./src/ss_routes')
+const webpack = require('webpack')
+const path = require('path')
 
-module.exports = {
-  entry: './src/index',
-  output: {
-    path: 'build',
-    filename: 'bundle.js',
-    libraryTarget: 'umd'
-  },
-  module: {
-    loaders: [
-      {
-        test: /\.js/,
-        loader: 'babel',
-        include: __dirname + '/src',
-      },
-      {
-        test: /\.css/,
-        loader: ExtractTextPlugin.extract(
-          'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss'
-        ),
-        include: __dirname + '/src'
-      },
-      {
-        test: /\.(jpg|png)/,
-        loader: 'file-loader?name=assets/img-[hash:6].[ext]',
-        include: __dirname + '/src'
-      },
-      {
-        test: /\.(ico|otf|pdf)/,
-        loader: 'file-loader?name=[name].[ext]',
-        include: __dirname + '/src/'
-      }
-    ],
-  },
-  postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
-  plugins: [
-    new ExtractTextPlugin("styles.css"),
-    new StaticSiteGeneratorPlugin('main', ss.routes, ss)
+function output (options) {
+  //path: 'build',
+  return { filename: 'bundle.js', publicPath: '', globalObject: '(typeof self !== `undefined` ? self : this)', libraryTarget: 'umd' }
+}
+
+function plugins (options) {
+  if (options.mode === 'production') {
+    return [
+      new StaticSiteGeneratorPlugin('main', ss.routes, ss),
+      new webpack.DefinePlugin({'process.env': { NODE_ENV: `'production'` }})
+    ]
+  }
+  return [
+    new StaticSiteGeneratorPlugin('main', ss.routes, ss),
   ]
-};
+}
+
+function target (options) {
+  if (options.mode === 'production') {
+    return 'node'
+  }
+  return 'web'
+}
+
+
+module.exports = (env, options) => {
+  return {
+    entry: './src/index',
+    output: output(options),
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          use: [ { loader: 'babel-loader', options: { presets: ['@babel/preset-env', '@babel/react'] } } ],
+          exclude: /node_modules/,
+        },
+        {
+          test: /\.(png|jpg|gif|eot|ico|ttf|woff|woff2)$/,
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: './assets'
+          }
+        }
+      ]
+    },
+    plugins: plugins(options),
+    target: target(options)
+  }
+}

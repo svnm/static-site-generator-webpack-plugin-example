@@ -1,7 +1,6 @@
 import React from 'react'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
-import style from './App.css'
 
 export default class App extends React.Component {
   render() {
@@ -14,3 +13,17 @@ export default class App extends React.Component {
     )
   }
 }
+
+/*
+* {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+html {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+body {
+  margin: 0;
+}
+*/

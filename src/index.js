@@ -1,30 +1,39 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import ReactDOMServer from 'react-dom/server'
-import { Router, RouterContext, match, browserHistory, createMemoryHistory } from 'react-router'
+import { StaticRouter, withRouter } from 'react-router'
+import { createMemoryHistory } from 'history'
 import Template from './Template'
-import Routes from './routes'
 
-/* Client render (optional) */
-if (typeof document !== 'undefined') {
-  const outlet = document.getElementById('outlet')
-  ReactDOM.render(<Router history={browserHistory} routes={Routes} />, outlet)
-}
+//import Routes from './routes'
+import {Route} from 'react-router-dom'
+import App from './App'
+import Home from './pages/Home/Home'
+import Tech from './pages/Tech/Tech'
+import Contact from './pages/Contact/Contact'
+
+const SSRoutes = (
+  <Route component={App}>
+    <Route exact path='/' component={Home}/>
+    <Route path='/tech' component={Tech}/>
+    <Route path='/contact' component={Contact}/>
+  </Route>
+)
+
+const Routes = withRouter(SSRoutes)
 
 /* Exported static site renderer */
 export default (locals, callback) => {
   const history = createMemoryHistory()
   const location = history.createLocation(locals.path)
+  const context = {}
 
-  match({
-    routes: Routes,
-    location: location
-  }, function(error, redirectLocation, renderProps) {
-    var html = ReactDOMServer.renderToStaticMarkup(
-      <Template>
-        <RouterContext {...renderProps} />
-      </Template>
-    );
-    callback(null, html)
-  })
+  //routes: Routes,
+  var html = ReactDOMServer.renderToStaticMarkup(
+    <Template>
+      <StaticRouter location={location} context={context}>
+        <Routes />
+      </StaticRouter>
+    </Template>
+  )
+  callback(null, html)
 }

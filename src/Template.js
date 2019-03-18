@@ -12,7 +12,7 @@ export default class Template extends React.Component {
         </head>
         <body>
             <div id='outlet' className="container">
-                  {this.props.children}
+              {this.props.children}
             </div>
             <script src="/bundle.js"></script>
         </body>
